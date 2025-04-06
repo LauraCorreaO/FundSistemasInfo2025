@@ -50,6 +50,13 @@ public class CacheConfiguration {
             createCache(cm, com.udea.fsi.domain.User.class.getName());
             createCache(cm, com.udea.fsi.domain.Authority.class.getName());
             createCache(cm, com.udea.fsi.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.udea.fsi.domain.Pasajero.class.getName());
+            createCache(cm, com.udea.fsi.domain.Pasajero.class.getName() + ".reservas");
+            createCache(cm, com.udea.fsi.domain.Reserva.class.getName());
+            createCache(cm, com.udea.fsi.domain.Vuelo.class.getName());
+            createCache(cm, com.udea.fsi.domain.Vuelo.class.getName() + ".reservas");
+            createCache(cm, com.udea.fsi.domain.Asiento.class.getName());
+            createCache(cm, com.udea.fsi.domain.Asiento.class.getName() + ".reservas");
             // jhipster-needle-ehcache-add-entry
         };
     }

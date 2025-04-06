@@ -1,0 +1,64 @@
+// an ignored comment
+/** not an ignored comment */
+
+/**
+ * Task entity.
+ * @author The JHipster team.
+ */
+
+/**
+ * The Employee entity.
+ */
+
+entity Pasajero {
+ nombre String required
+ apellido String required
+ email String required unique
+ telefono String
+ fechaNacimiento LocalDate
+}
+entity Reserva {
+ codigo String required unique
+ fechaReserva Instant required
+ estado String required
+}
+
+entity Vuelo {
+ numeroVuelo String required unique
+ origen String required
+ destino String required
+ fechaSalida Instant required
+ fechaLlegada Instant required
+}
+entity Asiento {
+ numero String required
+ clase String required
+ disponible Boolean required
+}
+
+enum Language {
+    FRENCH, ENGLISH, SPANISH
+}
+
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {
+ Pasajero to Reserva
+}
+
+relationship ManyToOne {
+ Reserva to Vuelo
+ Reserva to Asiento
+}
+
+
+// Set pagination options
+paginate Pasajero, Reserva, Vuelo, Asiento with pagination
+
+// Use Data Transfer Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service Pasajero, Reserva, Vuelo, Asiento with serviceClass
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
